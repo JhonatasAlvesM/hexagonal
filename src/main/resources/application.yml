@@ -1,9 +1,0 @@
-jhonatas:
-  client:
-    address:
-      url: http://localhost8082/addresses
-
-spring:
-  data:
-    mongodb:
-      uri: mongodb://localhost:27017/hexagonal
