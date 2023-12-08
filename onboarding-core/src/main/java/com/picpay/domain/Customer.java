@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 public class Customer {
     private String name;
     private String id;
-
     private Address address;
     private String cpf;
     private Boolean isValidCpf;

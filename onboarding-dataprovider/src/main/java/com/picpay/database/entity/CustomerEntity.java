@@ -55,8 +55,8 @@ public class CustomerEntity {
         return isValidCpf;
     }
 
-    public void setIsValidCpf(Boolean validCpf) {
-        isValidCpf = validCpf;
+    public void setIsValidCpf(Boolean isValidCpf) {
+        this.isValidCpf = isValidCpf;
     }
 
     @Override
