@@ -15,16 +15,9 @@ public class UpdateCpfUseCase implements UpdateCpfInputPort {
     private final UpdateCustomerOutputPort updateCustomerOutputPort;
 
     @Override
-    public void updateCpf(String cpf, boolean isValid) {
-        var customer = findCustomerByCpfOutputPort.findCustomerByCpf(cpf).orElseThrow(()-> new RuntimeException("Deu erro Ops..."));
+    public void update(String cpf, boolean isValid) {
+        var customer = findCustomerByCpfOutputPort.find(cpf).orElseThrow(()-> new RuntimeException("Deu erro Ops..."));
         customer.setIsValidCpf(isValid);
-
-        updateCustomerOutputPort.updateCustomer(customer);
-
-
-
-
-
-
+        updateCustomerOutputPort.update(customer);
     }
 }

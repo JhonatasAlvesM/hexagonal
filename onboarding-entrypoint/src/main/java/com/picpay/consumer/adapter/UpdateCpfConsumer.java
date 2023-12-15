@@ -16,7 +16,7 @@
         private final UpdateCpfInputPort updateCpfInputPort;
 
         public void receive(UpdateCpfEvent updateCpfEvent){
-            updateCpfInputPort.updateCpf(updateCpfEvent.getCpf(), updateCpfEvent.isValidCpf());
+            updateCpfInputPort.update(updateCpfEvent.getCpf(), updateCpfEvent.isValidCpf());
         }
         @Bean
         public Consumer<UpdateCpfEvent> updateCPF(){

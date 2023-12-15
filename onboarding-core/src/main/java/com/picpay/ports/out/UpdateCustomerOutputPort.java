@@ -4,5 +4,5 @@ import com.picpay.domain.Customer;
 
 public interface UpdateCustomerOutputPort {
 
-    void updateCustomer(Customer customer);
+    void update(Customer customer);
 }

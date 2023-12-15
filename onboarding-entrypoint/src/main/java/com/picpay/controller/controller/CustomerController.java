@@ -25,11 +25,10 @@ public class CustomerController {
     @Autowired
     private CustomerMapper customerMapper;
 
-    @PostMapping(value = "/post", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> insert(@Valid @RequestBody CustomerRequest customerRequest){
         var customer = customerMapper.toCustomer(customerRequest);
         insertCustomerInputPort.insert(customer, customerRequest.getZipCode());
         return ResponseEntity.ok().body("Inserido com sucesso");
-
     }
 }

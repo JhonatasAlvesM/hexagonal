@@ -18,7 +18,7 @@ public class ValidationCpfUseCase implements ValidationCpfInputPort {
     @Override
     public void validation(String cpf) {
         boolean isValid =  ValidateCpfUtils.validaCPF(cpf);
-        sendResultCpfValidationOutputPort.sendCpfResult(cpf, isValid);
+        sendResultCpfValidationOutputPort.send(cpf, isValid);
 
     }
 

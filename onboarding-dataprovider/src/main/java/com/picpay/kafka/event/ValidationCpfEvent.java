@@ -12,9 +12,6 @@ import lombok.Setter;
 @Builder
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class ValidationCpfEvent {
-
     String cpf;
-
-
     boolean isValidCpf;
 }

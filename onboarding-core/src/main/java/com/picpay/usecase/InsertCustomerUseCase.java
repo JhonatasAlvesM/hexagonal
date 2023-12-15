@@ -7,7 +7,6 @@ import com.picpay.ports.in.InsertCustomerInputPort;
 import com.picpay.ports.out.FindAddressByZipCodeOutpuPort;
 import com.picpay.ports.out.FindCustomerByCpfOutputPort;
 import com.picpay.ports.out.InsertCustomerOutpuPort;
-import com.picpay.ports.in.ValidationCpfInputPort;
 import com.picpay.ports.out.SendCpfValidationOutputPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -29,7 +28,7 @@ public class InsertCustomerUseCase implements InsertCustomerInputPort {
     @Override
     public void insert(Customer customer, String zipCode ){
 
-        var isPresent = findCustomerByCpfOutputPort.findCustomerByCpf(customer.getCpf()).isPresent();
+        var isPresent = findCustomerByCpfOutputPort.find(customer.getCpf()).isPresent();
         if(isPresent){
             throw new CpfAlreadyExists("Cpf já está persistindo no banco de dados");
 

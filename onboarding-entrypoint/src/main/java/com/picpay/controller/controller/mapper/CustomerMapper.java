@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
-public interface   CustomerMapper {
+public interface CustomerMapper {
 
 
     @Mapping(target = "address", ignore = true)
