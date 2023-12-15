@@ -15,3 +15,52 @@ spring:
       username: root
       password: example
       database: hexagonal
+
+  cloud:
+    stream:
+      kafka:
+        binder:
+          configuration:
+            retries: 3
+          brokers: localhost:9092
+          autoAddPartitions: true
+          replication-factor: 1
+          autoCreateTopics: true
+          producer-properties:
+            key:
+              serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+        bindings:
+          receiveCPF-in-0:
+            consumer:
+              enableDlq: false
+              autoCommitOffset: true
+              autoCommitOnError: true
+              configuration:
+                max.poll.records: 5
+                max.poll.interval.ms: 3600000
+          updateCPF-in-0:
+            consumer:
+              enableDlq: false
+              autoCommitOffset: true
+              autoCommitOnError: true
+              configuration:
+                max.poll.records: 5
+                max.poll.interval.ms: 3600000
+      bindings:
+        sendCPF-out-0:
+          destination: tp-cpf-validation
+          contentType: application/json
+        sendResultCpf-out-0:
+          destination: tp-cpf-validated
+          contentType: application/json
+        updateCPF-in-0:
+          destination: tp-cpf-validated
+          contentType: application/json
+          group: update
+
+        receiveCPF-in-0:
+          destination: tp-cpf-validation
+          contentType: application/json
+          group: receiveCpf
+    function:
+      definition: receiveCPF;updateCPF

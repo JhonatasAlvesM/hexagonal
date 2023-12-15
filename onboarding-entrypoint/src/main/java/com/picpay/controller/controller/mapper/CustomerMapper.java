@@ -1,7 +1,7 @@
-package com.picpay.adapter.controller.mapper;
+package com.picpay.controller.controller.mapper;
 
 
-import com.picpay.adapter.controller.request.CustomerRequest;
+import com.picpay.controller.controller.request.CustomerRequest;
 import com.picpay.domain.Customer;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

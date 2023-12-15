@@ -1,4 +1,4 @@
-package com.picpay.adapter.controller.request;
+package com.picpay.controller.controller.request;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;

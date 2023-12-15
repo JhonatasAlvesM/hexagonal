@@ -1,17 +1,21 @@
 package com.picpay.adapter;
 
-import com.picpay.ports.out.SendCpfForValidationOutputPort;
+import com.picpay.kafka.KafkaProducer;
+import com.picpay.ports.in.ValidationCpfInputPort;
+import com.picpay.ports.out.SendCpfValidationOutputPort;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SendCpfValidationAdapter implements SendCpfForValidationOutputPort {
+public class SendCpfValidationAdapter implements SendCpfValidationOutputPort {
 
     @Autowired
-    private KafkaTemplate<String, String> kafkaTemplate;
+    private KafkaProducer<String> kafkaProducer;
+
     @Override
     public void send(String cpf) {
-        kafkaTemplate.send("tp-cpf-validation",cpf);
+        kafkaProducer.publish(cpf, "sendCPF-out-0");
     }
+
+
 }
